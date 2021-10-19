@@ -4,7 +4,7 @@ ffibuilder = FFI()
 
 
 ffibuilder.cdef(
-"""
+    """
 int16_t scd4x_start_periodic_measurement(void);
 int16_t scd4x_read_measurement_ticks(uint16_t* co2, uint16_t* temperature,
                                      uint16_t* humidity);
@@ -40,12 +40,13 @@ void sensirion_i2c_hal_free(void);
 """)
 
 ffibuilder.set_source('_scd4x_driver',  # name of the output C extension
-"""
-    #include "scd4x_i2c.h"
-    #include "sensirion_i2c_hal.h"
+                      """
+#include "raspberry-pi-i2c-scd4x/scd4x_i2c.h"
+#include "raspberry-pi-i2c-scd4x/sensirion_i2c_hal.h"
 """,
-sources=['scd4x_i2c.c', 'sensirion_common.c', 'sensirion_i2c.c', 'sensirion_i2c_hal.c'],   # includes pi.c as additional sources
-)
+                      sources=['raspberry-pi-i2c-scd4x/scd4x_i2c.c', 'raspberry-pi-i2c-scd4x/sensirion_common.c',
+                               'raspberry-pi-i2c-scd4x/sensirion_i2c.c', 'raspberry-pi-i2c-scd4x/sensirion_i2c_hal.c', ],   # includes pi.c as additional sources
+                      )
 
 if __name__ == "__main__":
     ffibuilder.compile(verbose=True)
