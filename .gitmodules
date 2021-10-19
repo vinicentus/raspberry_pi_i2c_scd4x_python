@@ -1,0 +1,3 @@
+[submodule "raspberry-pi-i2c-scd4x"]
+	path = raspberry-pi-i2c-scd4x
+	url = https://github.com/Sensirion/raspberry-pi-i2c-scd4x
