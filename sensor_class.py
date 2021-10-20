@@ -12,7 +12,6 @@ class SCD4x:
     def scd4x_start_periodic_measurement(self) -> None:
         lib.scd4x_start_periodic_measurement()
 
-    # TODO: check float type
     def scd4x_read_measurement_ticks(self) -> Tuple[int, int, int]:
         co2 = self._ffi.new("uint16_t *")
         temperature = self._ffi.new("uint16_t *")
