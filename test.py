@@ -26,8 +26,13 @@ while True:
     # TODO: sleep with native c method
     sleep(5)
 
-    co2, temperature, humidity = sensor.scd4x_read_measurement()
+    data_ready = sensor.scd4x_get_data_ready_status()
 
-    print("CO2:{} ppm".format(co2))
-    print("Temperature: {} °C".format(temperature))
-    print("Humidity: {} RH".format(humidity))
+    print("Data ready: {}".format(data_ready))
+
+    if (data_ready):
+        co2, temperature, humidity = sensor.scd4x_read_measurement()
+
+        print("CO2: {} ppm".format(co2))
+        print("Temperature: {} °C".format(temperature))
+        print("Humidity: {} RH".format(humidity))
