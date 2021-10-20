@@ -1,12 +1,11 @@
-from _scd4x_driver import lib
-from cffi import FFI
 from time import sleep
+from i2c_class import I2C
 from sensor_class import SCD4x
 
-ffi = FFI()
+i2c = I2C()
 sensor = SCD4x()
 
-lib.sensirion_i2c_hal_init()
+i2c.sensirion_i2c_hal_init()
 
 # Clean up potential SCD40 states
 sensor.scd4x_wake_up()
