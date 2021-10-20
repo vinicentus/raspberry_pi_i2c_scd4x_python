@@ -1,4 +1,4 @@
-# raspberry-pi-i2c-scd4x-python
+# raspberry_pi_i2c_scd4x_python
 Python bindings for raspberry-pi-i2c-scd4x
 
 The original driver, written in C/C++, is included as a submodule. This repository contains python bindings for it.
