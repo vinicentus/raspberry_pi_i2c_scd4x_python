@@ -14,7 +14,7 @@ sensor.scd4x_stop_periodic_measurement()
 sensor.scd4x_reinit()
 
 serial = sensor.scd4x_get_serial_number()
-print(serial)
+print(f"Serial number: {hex(serial)}")
 
 # Start Measurement
 sensor.scd4x_start_periodic_measurement()
@@ -28,11 +28,11 @@ while True:
 
     data_ready = sensor.scd4x_get_data_ready_status()
 
-    print("Data ready: {}".format(data_ready))
+    print(f"Data ready: {data_ready}")
 
     if (data_ready):
         co2, temperature, humidity = sensor.scd4x_read_measurement()
 
-        print("CO2: {} ppm".format(co2))
-        print("Temperature: {} °C".format(temperature))
-        print("Humidity: {} RH".format(humidity))
+        print(f"CO2: {co2} ppm")
+        print(f"Temperature: {temperature} °C")
+        print(f"Humidity: {humidity} RH")

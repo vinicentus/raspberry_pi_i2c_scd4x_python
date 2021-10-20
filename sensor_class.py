@@ -101,14 +101,15 @@ class SCD4x:
         lib.scd4x_persist_settings()
 
     # The return type here deviates from the C libary!
-    def scd4x_get_serial_number(self) -> str:
+    def scd4x_get_serial_number(self) -> int:
         serial_0 = self._ffi.new("uint16_t *")
         serial_1 = self._ffi.new("uint16_t *")
         serial_2 = self._ffi.new("uint16_t *")
         lib.scd4x_get_serial_number(serial_0, serial_1, serial_2)
+        # This is ineficcient, but it will do for now
         serial = hex(serial_0[0]) + hex(serial_1[0]
                                         ).lstrip("0x") + hex(serial_2[0]).lstrip("0x")
-        return serial
+        return int(serial, 16)
 
     def scd4x_perform_self_test(self) -> int:
         sensor_status_uint16_t = self._ffi.new("uint16_t *")
