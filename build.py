@@ -20,6 +20,7 @@ int16_t scd4x_set_sensor_altitude(uint16_t sensor_altitude);
 int16_t scd4x_set_ambient_pressure(uint16_t ambient_pressure);
 int16_t scd4x_perform_forced_recalibration(uint16_t target_co2_concentration,
                                            uint16_t* frc_correction);
+int16_t scd4x_get_automatic_self_calibration(uint16_t* asc_enabled);
 int16_t scd4x_set_automatic_self_calibration(uint16_t asc_enabled);
 int16_t scd4x_start_low_power_periodic_measurement(void);
 int16_t scd4x_get_data_ready_status(uint16_t* data_ready);
