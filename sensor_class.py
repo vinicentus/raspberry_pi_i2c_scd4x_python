@@ -17,7 +17,14 @@ class SCD4x:
         raise NotImplementedError
 
     def scd4x_read_measurement(self) -> Tuple[int, float, float]:
-        raise NotImplementedError
+        co2_1 = self._ffi.new("uint16_t *")
+        temperature_1 = self._ffi.new("float *")
+        humidity_1 = self._ffi.new("float *")
+        result = lib.scd4x_read_measurement(co2_1, temperature_1, humidity_1)
+        co2 = co2_1[0]
+        temperature_deg_c = temperature_1[0]
+        humidity_percent_rh = humidity_1[0]
+        return (co2, temperature_deg_c, humidity_percent_rh)
 
     def scd4x_stop_periodic_measurement(self) -> None:
         lib.scd4x_stop_periodic_measurement()
@@ -65,7 +72,13 @@ class SCD4x:
 
     # The return type here deviates from the C libary!
     def scd4x_get_serial_number(self) -> str:
-        raise NotImplementedError
+        serial_0 = self._ffi.new("uint16_t *")
+        serial_1 = self._ffi.new("uint16_t *")
+        serial_2 = self._ffi.new("uint16_t *")
+        result = lib.scd4x_get_serial_number(serial_0, serial_1, serial_2)
+        serial = hex(serial_0[0]) + hex(serial_1[0]
+                                        ).lstrip("0x") + hex(serial_2[0]).lstrip("0x")
+        return serial
 
     def scd4x_perform_self_test(self) -> int:
         raise NotImplementedError
