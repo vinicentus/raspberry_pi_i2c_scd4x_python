@@ -1,6 +1,6 @@
 from time import sleep
-from i2c_class import I2C
-from sensor_class import SCD4x
+from .i2c_class import I2C
+from .sensor_class import SCD4x
 
 i2c = I2C()
 sensor = SCD4x()

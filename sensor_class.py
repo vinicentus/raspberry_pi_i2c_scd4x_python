@@ -1,4 +1,4 @@
-from _scd4x_driver import lib
+from ._scd4x_driver import lib
 from cffi import FFI
 from typing import Tuple
 
