@@ -5,9 +5,15 @@ The original driver, written in C/C++, is included as a submodule. This reposito
 
 Note that in order to make this simpler to use in Python, some methods may take different parameters or return different types of values than in the original driver.
 
-For documentation on functions, see [scd4x_i2c.h](./raspberry-pi-i2c-scd4x/scd4x_i2c.h) from the submodule.
+For documentation on functions, see [scd4x_i2c.h](./raspberry-pi-i2c-scd4x/scd4x_i2c.h) from the submodule.  
+
+Tested on Raspberry Pi.
 
 # Setup:
+Enable I2C (if using Rapsberry Pi)  
+`sudo raspi-config`  
+Then enable I2C from the menu
+
 clone this repo, make sure to fetch the submodule as well  
 `git clone --recurse-submodules https://github.com/vinicentus/raspberry_pi_i2c_scd4x_python.git`
 
