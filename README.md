@@ -14,8 +14,12 @@ clone this repo, make sure to fetch the submodule as well
 cd into directory  
 `cd raspberry_pi_i2c_scd4x_python`
 
+set up python for developement  
+`sudo apt install python3-dev`
+
 Recommended: create a python venv, and activate it  
-`python3 -m venv venv`
+`sudo apt install python3-venv`  
+`python3 -m venv venv`  
 `source venv/bin/activate`
 
 install the "cffi" libary using pip  
